@@ -12,9 +12,10 @@
 */
 
 Route::get('/', function () {
-    User::all();
     return view('welcome');
 });
+
+Route::resource('users', 'UserController')->except(['create', 'store']);
 
 Auth::routes();
 

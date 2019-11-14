@@ -1,0 +1,3 @@
+url();
+url('/');
+App\Test::test();
