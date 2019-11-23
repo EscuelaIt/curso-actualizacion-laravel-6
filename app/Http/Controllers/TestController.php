@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
-class HomeController extends Controller
+class TestController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -21,9 +21,14 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function test()
     {
-        ddd(request()->user());
-        return view('home');
+        str_random(15);
+        dd(Str::random(15));
+        // $user = User::findOrFail(34567);
+
+        $file = 'las-fotos-.-del-.-viaje-.-png';
+
+        return Str::beforeLast($file, '-.-');
     }
 }

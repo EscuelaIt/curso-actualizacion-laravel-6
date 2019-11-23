@@ -3,7 +3,9 @@
 namespace App\Exceptions;
 
 use Exception;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Support\Str;
 
 class Handler extends ExceptionHandler
 {
@@ -46,6 +48,12 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        if ($exception instanceof ModelNotFoundException) {
+            $model = strtolower(Str::afterLast($exception->getModel(), '\\'));
+
+            return response()->json("No se enconttró una instancia de {$model}");
+        }
+
         return parent::render($request, $exception);
     }
 }

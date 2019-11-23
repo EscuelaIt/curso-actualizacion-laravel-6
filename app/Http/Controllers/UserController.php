@@ -14,16 +14,18 @@ class UserController extends Controller
      */
     public function index()
     {
+        //eager();
+        //remember();
         $users = User::cursor();
-        $users = User::cursor();
-        $users = User::cursor();
-        $users = User::cursor();
-        $users = User::cursor();
-        $users = User::cursor();
-        $users = User::cursor();
-        $users = User::cursor();
-        $users = User::cursor();
-        $users = User::cursor();
+        // $users = User::cursor();
+        // $users = User::cursor();
+        // $users = User::cursor();
+        // $users = User::cursor();
+        // $users = User::cursor();
+        // $users = User::cursor();
+        // $users = User::cursor();
+        // $users = User::cursor();
+        // $users = User::cursor();
 
         return view('users.index')->with([
             'users' => $users,

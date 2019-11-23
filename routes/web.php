@@ -17,6 +17,8 @@ Route::get('/', function () {
 
 Route::resource('users', 'UserController')->except(['create', 'store']);
 
+Route::get('test', 'TestController@test');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
